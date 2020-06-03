@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Permission\Models\Role;
 use App\Person;
 use App\User;
 use Illuminate\Support\Facades\Gate;
@@ -61,6 +62,7 @@ class UserController extends Controller
             Alert::warning('Error', 'Las Contraseñas no Coinciden');
             return redirect('usuarios/create');
         }
+        $usuario->roles()->sync(2);
         $usuario->save();
         $user = User::orderBy('id', 'DESC')->limit(1)->get();
         $persona = new Person();
@@ -89,6 +91,7 @@ class UserController extends Controller
     {
         Gate::authorize('haveAccess', 'user.show');
         $user = User::findOrFail($id);
+//        $user = User::with('roles')->orderBy('id');
 
 
         return view('admin.usuarios.show', compact('user'));
@@ -104,7 +107,8 @@ class UserController extends Controller
     {
         Gate::authorize('haveAccess', 'user.edit');
         $user = User::findorfail($id);
-        return view('admin.usuarios.edit', compact('user'));
+        $roles = Role::orderBy('name')->get();
+        return view('admin.usuarios.edit', compact('user', 'roles'));
     }
 
     /**
@@ -131,6 +135,7 @@ class UserController extends Controller
         if($request->password){
             $user->password = bcrypt($request->password);
         }
+        $user->roles()->sync($request->get('roles'));
         $user->save();
         Alert::success('Hecho', 'Usuario Actualizado Correctamente');
         return redirect('usuarios');

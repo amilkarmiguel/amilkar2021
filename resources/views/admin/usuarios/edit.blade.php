@@ -57,6 +57,29 @@
                                     </div>
                                 </div>
                                 <div class="form-group">
+                                    <div class="col-md-12">
+                                        <div class="input-group">
+                                            <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
+                                            <select name="roles" id="roles" class="form-control">
+                                                @foreach($roles as $role)
+                                                    <option value="{{ $role->id }}"
+                                                            @isset($user->roles[0]->name)
+                                                                @if($role->name == $user->roles[0]->name)
+                                                                    selected
+                                                                @endif
+                                                            @endisset
+                                                    >{{ $role->name }}</option>
+                                                @endforeach
+                                            </select>
+                                            @if ($errors->has('email'))
+                                                <small class="form-text text-danger">
+                                                    {{ $errors->first('email') }}
+                                                </small>
+                                            @endif
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
                                     <label class="col-md-12 text-center" for="example-email">Rellene los siguientes campos si desea cambiar su contraseña</label>
 
                                 </div>

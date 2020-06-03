@@ -24,6 +24,7 @@
                 <thead>
                 <tr>
                     <th>Email</th>
+                    <th>Rol(es)</th>
                     <th>Nombres</th>
                     <th>Apellido Paterno</th>
                     <th>Apellido Materno</th>
@@ -37,6 +38,9 @@
 
                     <tr class="text-center">
                         <td>{{ $user->email }}</td>
+                        @isset($user->roles[0]->name)
+                        <td>{{ $user->roles[0]->name }}</td>
+                        @endisset
                         <td>{{ $user->person->name }}</td>
                         <td>{{ $user->person->app }}</td>
                         <td>{{ $user->person->apm }}</td>
