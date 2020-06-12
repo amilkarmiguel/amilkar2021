@@ -2,6 +2,7 @@
     <li>
         <a href="{{ route('dashboard') }}" class="{{ request()->is('dashboard') ? 'active' : '' }}"><i class="gi gi-stopwatch sidebar-nav-icon"></i><span class="sidebar-nav-mini-hide">Inicio</span></a>
     </li>
+    @can('haveAccess', 'user.index')
     <li>
         <a href="#" class="sidebar-nav-menu {{ request()->is('usuarios*') ? 'active' : '' }}"><i class="fa fa-angle-left sidebar-nav-indicator sidebar-nav-mini-hide"></i><i class="fa fa-users sidebar-nav-icon"></i><span class="sidebar-nav-mini-hide">Usuarios</span></a>
         <ul>
@@ -13,6 +14,8 @@
             </li>
         </ul>
     </li>
+    @endcan
+    @can('haveAccess', 'role.index')
     <li>
         <a href="#" class="sidebar-nav-menu {{ request()->is('role*') ? 'active' : '' }}"><i class="fa fa-angle-left sidebar-nav-indicator sidebar-nav-mini-hide"></i><i class="fa fa-users sidebar-nav-icon"></i><span class="sidebar-nav-mini-hide">Roles</span></a>
         <ul>
@@ -24,6 +27,7 @@
             </li>
         </ul>
     </li>
+    @endcan
     <li class="sidebar-header">
         <span class="sidebar-header-options clearfix"><i class="fa fa-link"></i></span>
         <span class="sidebar-header-title">Otros Enlaces</span>

@@ -21,6 +21,7 @@ class UserController extends Controller
     public function index()
     {
         Gate::authorize('haveAccess', 'user.index');
+//        $this->authorize('haveaccess', 'user.index');
         $users = User::orderBy('id')->paginate(10);
         $users->each(function($u){
             $u->persona;
@@ -36,6 +37,7 @@ class UserController extends Controller
      */
     public function create()
     {
+//        $this->authorize('create', User::class);
         Gate::authorize('haveAccess', 'user.create');
         return view('admin.usuarios.create');
     }
@@ -89,8 +91,9 @@ class UserController extends Controller
      */
     public function show($id)
     {
-        Gate::authorize('haveAccess', 'user.show');
         $user = User::findOrFail($id);
+        $this->authorize('view', [$user, ['user.show', 'userown.show']]);
+//        Gate::authorize('haveAccess', 'user.show');
 //        $user = User::with('roles')->orderBy('id');
 
 
@@ -105,8 +108,9 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        Gate::authorize('haveAccess', 'user.edit');
+//        Gate::authorize('haveAccess', 'user.edit');
         $user = User::findorfail($id);
+        $this->authorize('update', [$user, ['user.edit', 'userown.edit']]);
         $roles = Role::orderBy('name')->get();
         return view('admin.usuarios.edit', compact('user', 'roles'));
     }
@@ -150,7 +154,9 @@ class UserController extends Controller
     public function destroy($id)
     {
         Gate::authorize('haveAccess', 'user.destroy');
+
         $persona = Person::where('user_id', $id)->get();
+
         $persona = Person::findorfail($persona[0]->id);
         $persona->delete();
         User::find($id)->delete();

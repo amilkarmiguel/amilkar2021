@@ -18,7 +18,9 @@
 
     <div class="block full" xmlns="http://www.w3.org/1999/html">
         <div class="table-responsive">
+            @can('haveAccess', 'user.create')
             <a class="btn btn-primary float-right"  href="{{ route('role.create') }}">Create</a> <br><br>
+            @endcan
             <table id="example-datatable" class="table table-center table-condensed table-bordered">
                 <thead>
                 <tr>
