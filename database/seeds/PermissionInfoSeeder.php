@@ -172,7 +172,7 @@ class PermissionInfoSeeder extends Seeder
                 'slug' => 'userown.edit',
                 'description' => 'A user can edit own user'
             ]);
-
+            $permission_all[] = $permission->id;
 
 
 
