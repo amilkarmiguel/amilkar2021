@@ -28,6 +28,17 @@
         </ul>
     </li>
     @endcan
+    <li>
+        <a href="#" class="sidebar-nav-menu {{ request()->is('role*') ? 'active' : '' }}"><i class="fa fa-angle-left sidebar-nav-indicator sidebar-nav-mini-hide"></i><i class="fa fa-users sidebar-nav-icon"></i><span class="sidebar-nav-mini-hide">Divisiones</span></a>
+        <ul>
+            <li>
+                <a href="{{ route('divisiones.index') }}" class="{{ request()->is('divisiones') ? 'active' : '' }}">Ver Todos <i class="fa fa-eye sidebar-nav-indicator sidebar-nav-mini-hide"></i></a>
+            </li>
+            <li>
+                <a href="{{ route('divisiones.create') }}">Agregar Nuevo <i class="fa fa-user-plus sidebar-nav-indicator sidebar-nav-mini-hide"></i></a>
+            </li>
+        </ul>
+    </li>
     <li class="sidebar-header">
         <span class="sidebar-header-options clearfix"><i class="fa fa-link"></i></span>
         <span class="sidebar-header-title">Otros Enlaces</span>
