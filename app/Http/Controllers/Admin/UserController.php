@@ -39,6 +39,7 @@ class UserController extends Controller
     {
 //        $this->authorize('create', User::class);
         Gate::authorize('haveAccess', 'user.create');
+        // $roles = Role::all();
         return view('admin.usuarios.create');
     }
 

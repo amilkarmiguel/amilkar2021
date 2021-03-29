@@ -80,9 +80,9 @@ class PermissionInfoSeeder extends Seeder
 
         //Role Client
         $roleClient = Role::create([
-            'name' => 'Cliente',
-            'slug' => 'cliente',
-            'description' => 'Cliente de la empresa',
+            'name' => 'Fiscal',
+            'slug' => 'fiscal',
+            'description' => 'Fiscal de materia',
             'full-access' => 'no'
         ]);
 
