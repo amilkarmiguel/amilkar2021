@@ -34,5 +34,6 @@ Route::group(['
         Route::resource('usuarios', 'UserController');
         Route::resource('divisiones', 'DivisionController');
         Route::resource('rotulos', 'RotuloController');
+        Route::get('pdf/{rotulo}', 'RotuloController@generarPDF')->name('generarPDF');
         Route::get('/dashboard', 'AdminController@index')->name('dashboard');
     });

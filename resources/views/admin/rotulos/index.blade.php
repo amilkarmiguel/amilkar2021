@@ -51,8 +51,10 @@
 
                                     <a href="{{ route('rotulos.show', $rotulo) }}" data-toggle="tooltip" title="Ver" class="btn btn-xs btn-info"><i class="fa fa-eye"></i></a>
 
-
                                     <a href="{{ route('rotulos.edit', $rotulo) }}" data-toggle="tooltip" title="Editar" class="btn btn-xs btn-success"><i class="fa fa-pencil"></i></a>
+
+                                    <a href="{{ route('generarPDF', $rotulo) }}" target="_blank" data-toggle="tooltip" title="PDF" class="btn btn-xs btn-success"><i class="fa fa-pencil"></i></a>
+
 
                                     <form method="POST"
                                           action="{{ route('rotulos.destroy', $rotulo) }}"

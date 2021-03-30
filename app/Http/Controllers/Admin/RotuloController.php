@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Rotulo;
 use Illuminate\Http\Request;
 use RealRashid\SweetAlert\Facades\Alert;
+use PDF;
 
 class RotuloController extends Controller
 {
@@ -107,5 +108,19 @@ class RotuloController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+
+    public function generarPDF($id){
+        $rotulo = Rotulo::findOrFail($id);
+
+        $view = \Illuminate\Support\Facades\View::make('admin.rotulos.pdf', compact('rotulo'));
+        $html = $view->render();
+        PDF::SetMargins(5, 5, 5);
+        PDF::SetAutoPageBreak(TRUE, 2);
+        PDF::SetTitle('Rotulo');
+        PDF::AddPage('L', 'A5');
+        PDF::writeHTML($html, true, false, true, false, '');
+        PDF::Output('rotulo-'.$rotulo->id.'.pdf');
     }
 }
