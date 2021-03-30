@@ -76,6 +76,20 @@
                                             </div>
                                         </div>
                                     </div>
+                                    <div class="form-group">
+                                        <div class="col-md-12">
+                                            <label for="categoria">Division</label>
+                                            <select class="form-control @error('division_id') is-invalid @enderror" name="division_id" id="division_id">
+                                                <option value="" selected disabled>Seleccione</option>
+                                                @foreach ($divisiones as $division)
+                                                    <option
+                                                    value="{{  $division->id }}"
+
+                                                    >{{  $division->sigla }}</option>
+                                                @endforeach
+                                            </select>
+                                        </div>
+                                    </div>
                                 </div>
 
                             </div>

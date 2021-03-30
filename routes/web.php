@@ -33,5 +33,6 @@ Route::group(['
         Route::resource('/role', 'RoleController')->names('role');
         Route::resource('usuarios', 'UserController');
         Route::resource('divisiones', 'DivisionController');
+        Route::resource('rotulos', 'RotuloController');
         Route::get('/dashboard', 'AdminController@index')->name('dashboard');
     });

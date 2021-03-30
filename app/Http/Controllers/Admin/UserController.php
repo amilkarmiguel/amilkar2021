@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Division;
 use App\Http\Controllers\Controller;
 use App\Permission\Models\Role;
 use App\Person;
@@ -39,8 +40,8 @@ class UserController extends Controller
     {
 //        $this->authorize('create', User::class);
         Gate::authorize('haveAccess', 'user.create');
-        // $roles = Role::all();
-        return view('admin.usuarios.create');
+        $divisiones = Division::all();
+        return view('admin.usuarios.create', compact('divisiones'));
     }
 
     /**
@@ -66,6 +67,7 @@ class UserController extends Controller
             return redirect('usuarios/create');
         }
         $usuario->roles()->sync(2);
+        $usuario->division_id = $request->division_id;
         $usuario->save();
         $user = User::orderBy('id', 'DESC')->limit(1)->get();
         $persona = new Person();

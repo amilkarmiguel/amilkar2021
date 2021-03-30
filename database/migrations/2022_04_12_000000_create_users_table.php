@@ -17,6 +17,11 @@ class CreateUsersTable extends Migration
             $table->id();
             $table->string('email')->unique();
             $table->string('password');
+            $table->foreignId('division_id')
+                ->nullable()
+                ->references('id')
+                ->on('divisions')
+                ->onDelete('cascade');
             $table->rememberToken();
             $table->timestamps();
         });

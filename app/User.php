@@ -39,8 +39,21 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+    public function rol(){
+        return $this->belongsToMany('App\Permission\Models\Role');
+    }
+
     public function person(){
         return $this->hasOne('App\Person');
     }
+
+    public function division(){
+        return $this->belongsTo('App\User');
+    }
+
+    public function rotulos(){
+        return $this->hasMany('App\Rotulo');
+    }
+
 
 }

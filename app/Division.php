@@ -14,4 +14,8 @@ class Division extends Model
         'calle',
         'oficina',
     ];
+
+    public function users(){
+        return $this->hasMany('App\Division');
+    }
 }

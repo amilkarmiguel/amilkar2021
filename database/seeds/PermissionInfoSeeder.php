@@ -33,6 +33,7 @@ class PermissionInfoSeeder extends Seeder
         $userAdmin = new User();
         $userAdmin->email = "heraldcnp@gmail.com";
         $userAdmin->password = bcrypt("123");
+        // $userAdmin->division_id = 1;
         $userAdmin->save();
         $user = User::orderBy('id', 'DESC')->limit(1)->get();
         $persona = new Person();
@@ -55,6 +56,7 @@ class PermissionInfoSeeder extends Seeder
         $userClient = new User();
         $userClient->email = "cliente@gmail.com";
         $userClient->password = bcrypt("123");
+        // $userClient->division_id = 2;
         $userClient->save();
         $user = User::orderBy('id', 'DESC')->limit(1)->get();
         $client = new Person();
