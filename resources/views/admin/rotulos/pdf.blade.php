@@ -7,23 +7,22 @@
     <title>Rotulo</title>
 </head>
 <body>
-    <table border="1">
+    <table>
         <thead>
             <tr>
-                <td>
-                    Señor(a):
-                </td>
+                    <td colspan="3" style="text-align: left"><img alt="" src="{{ asset('img/fiscalia1.png') }}" /></td>
             </tr>
             <tr>
-                <td>{{ $rotulo->destinatario }}</td>
+                <td colspan="2" style="height:10; text-align: left; font-size:20px">Señor(a):</td>
             </tr>
             <tr>
-                <td>{{ $rotulo->cargo }}</td>
+                <td colspan="2" style="height:10; text-align: left; font-size:20px">{{$rotulo->destinatario }}</td>
             </tr>
             <tr>
-                <td>
-                    {{ $rotulo->municipio }}
-                </td>
+                <td colspan="2" style="height:10; text-align: left; font-size:20px">{{$rotulo->cargo }}</td>
+            </tr>
+            <tr>
+                <td colspan="2" style="height:50; text-align: left; font-size:20px">{{$rotulo->municipio }}</td>
             </tr>
         </thead>
         <br>
@@ -33,17 +32,20 @@
             <br>
             <br>
             <tr>
-                <td>Remitente:</td>
+                <td colspan="3" style="height:10; text-align: center; font-size:20px">Remitente:</td>
             </tr>
             <tr>
-                <td>{{ $rotulo->user->person->name }} {{ $rotulo->user->person->app }} {{ $rotulo->user->person->apm }}</td>
+                <td colspan="3" style="height:10; text-align: center; font-size:20px">{{ $rotulo->user->person->name }} {{ $rotulo->user->person->app }} {{ $rotulo->user->person->apm }}</td>
             </tr>
             <tr>
-                <td>{{ $rotulo->user->rol[0]->name}}</td>
+                <td colspan="3" style="height:10; text-align: center; font-size:20px">{{ $rotulo->user->rol[0]->name}}</td>
             </tr>
             <tr>
-                <td>{{ $rotulo->referencia }}</td>
+                <td colspan="3" style="height:10; text-align: center; font-size:20px">{{ $rotulo->referencia }}</td>
             </tr>
+            <tr>
+                <td colspan="3" style="text-align: center"><img alt="" src="{{ asset('img/fiscalia2.png') }}" /></td>
+        </tr>
         </tbody>
     </table>
 </body>

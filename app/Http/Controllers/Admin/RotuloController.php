@@ -119,7 +119,7 @@ class RotuloController extends Controller
         PDF::SetMargins(5, 5, 5);
         PDF::SetAutoPageBreak(TRUE, 2);
         PDF::SetTitle('Rotulo');
-        PDF::AddPage('L', 'A5');
+        PDF::AddPage('L', 'A4');
         PDF::writeHTML($html, true, false, true, false, '');
         PDF::Output('rotulo-'.$rotulo->id.'.pdf');
     }
