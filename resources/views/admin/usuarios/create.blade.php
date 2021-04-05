@@ -78,14 +78,14 @@
                                     </div>
                                     <div class="form-group">
                                         <div class="col-md-12">
-                                            <label for="categoria">Division</label>
-                                            <select class="form-control @error('division_id') is-invalid @enderror" name="division_id" id="division_id">
+                                            <label for="categoria">Rol</label>
+                                            <select class="form-control @error('rol') is-invalid @enderror" name="rol" id="rol">
                                                 <option value="" selected disabled>Seleccione</option>
-                                                @foreach ($divisiones as $division)
+                                                @foreach ($roles as $rol)
                                                     <option
-                                                    value="{{  $division->id }}"
+                                                    value="{{  $rol->id }}"
 
-                                                    >{{  $division->sigla }}</option>
+                                                    >{{  $rol->name }}</option>
                                                 @endforeach
                                             </select>
                                         </div>

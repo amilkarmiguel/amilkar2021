@@ -33,7 +33,6 @@ class RotuloController extends Controller
 
         $user = auth()->user();
         $remitente = auth()->user()->person;
-
         return view('admin.rotulos.create', compact('remitente', 'user'));
     }
 
@@ -84,7 +83,11 @@ class RotuloController extends Controller
      */
     public function edit($id)
     {
-        //
+        $user = auth()->user();
+        $remitente = auth()->user()->person;
+        $rotulo = Rotulo::findOrFail($id);
+        // dd($rotulo);
+        return view('admin.rotulos.edit', compact('rotulo', 'remitente', 'user'));
     }
 
     /**
@@ -96,7 +99,21 @@ class RotuloController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $data = $request->validate([
+            'referencia' => 'required',
+            'destinatario' => 'required',
+            'cargoD' => 'required',
+            'municipio' => 'required'
+        ]);
+        $rotulo = Rotulo::findOrFail($id);
+        $rotulo->referencia = $data['referencia'];
+        $rotulo->destinatario = $data['destinatario'];
+        $rotulo->cargo = $data['cargoD'];
+        $rotulo->celular = $request->celular;
+        $rotulo->municipio = $data['municipio'];
+        $rotulo->save();
+        Alert::success('Exito', 'Rotulo Actualizado Correctamente');
+        return redirect('rotulos');
     }
 
     /**
@@ -107,7 +124,10 @@ class RotuloController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $rotulo = Rotulo::findOrFail($id);
+        $rotulo->delete();
+        Alert::success('Exito', 'Rotulo Eliminado Correctamente');
+        return redirect('rotulos');
     }
 
 

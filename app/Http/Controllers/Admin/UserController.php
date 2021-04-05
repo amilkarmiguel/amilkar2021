@@ -40,8 +40,8 @@ class UserController extends Controller
     {
 //        $this->authorize('create', User::class);
         Gate::authorize('haveAccess', 'user.create');
-        $divisiones = Division::all();
-        return view('admin.usuarios.create', compact('divisiones'));
+        $roles = Role::all();
+        return view('admin.usuarios.create', compact('roles'));
     }
 
     /**
@@ -66,9 +66,11 @@ class UserController extends Controller
             Alert::warning('Error', 'Las Contraseñas no Coinciden');
             return redirect('usuarios/create');
         }
-        $usuario->roles()->sync(2);
+        // dd($request->rol)
+        $usuario->roles()->sync($request->rol);
         $usuario->division_id = $request->division_id;
         $usuario->save();
+
         $user = User::orderBy('id', 'DESC')->limit(1)->get();
         $persona = new Person();
         $persona->name = $request->name;
