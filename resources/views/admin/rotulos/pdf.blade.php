@@ -41,6 +41,9 @@
                 <td colspan="3" style="height:10; text-align: center; font-size:20px">{{ $rotulo->user->rol[0]->name}}</td>
             </tr>
             <tr>
+                <td colspan="3" style="height:10; text-align: center; font-size:20px">Referencia:</td>
+            </tr>
+            <tr>
                 <td colspan="3" style="height:10; text-align: center; font-size:20px">{{ $rotulo->referencia }}</td>
             </tr>
             <tr>

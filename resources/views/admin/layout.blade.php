@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
 
-    <title>WonderGroup - Dashboard</title>
+    <title>Fiscalia - Potosi</title>
 
     <meta name="description" content="ProUI is a Responsive Bootstrap Admin Template created by pixelcave and published on Themeforest.">
     <meta name="author" content="pixelcave">
@@ -104,7 +104,7 @@
                 <div class="sidebar-content ">
                     <!-- Brand -->
                     <a href="index.html" class="sidebar-brand">
-                        <span class="sidebar-nav-mini-hide"><strong>Wonder</strong>Group</span>
+                        <span class="sidebar-nav-mini-hide"><strong>Fiscalia </strong>Potosi</span>
                     </a>
                     <!-- END Brand -->
 
@@ -219,10 +219,10 @@
             <!-- Footer -->
             <footer class="clearfix">
                 <div class="pull-right">
-                    created <i class="fa fa-heart text-danger"></i>by <a href="https://1.envato.market/ydb" target="_blank">WonderGroup</a>
+                    creado <i class="fa fa-heart text-danger"></i>por <a href="https://1.envato.market/ydb" target="_blank">Amilkar Checa</a>
                 </div>
                 <div class="pull-left">
-                    WonderGroup &copy; Derechos Reservados
+                    AMC &copy; Derechos Reservados
                 </div>
             </footer>
             <!-- END Footer -->

@@ -78,7 +78,7 @@
 <head>
     <meta charset="utf-8">
 
-    <title>Iniciar Sesion - WonderGroup</title>
+    <title>Iniciar Sesion - Rotulos</title>
 
     <meta name="description" content="ProUI is a Responsive Bootstrap Admin Template created by pixelcave and published on Themeforest.">
     <meta name="author" content="pixelcave">
@@ -121,7 +121,7 @@
 <div id="login-container" class="animation-fadeIn">
     <!-- Login Title -->
     <div class="login-title text-center">
-        <h1><strong>WonderGroup</strong><br><small>Por favor <strong>Inicia Sesion</strong></small></h1>
+        <h1><strong>FISCALIA DEPARTAMENTAL DE POTOSI</strong><br><small>Por favor <strong>Inicia Sesion</strong></small></h1>
     </div>
     <!-- END Login Title -->
 
@@ -257,7 +257,7 @@
 
     <!-- Footer -->
     <footer class="text-muted text-center">
-        <small>WonderGroup &copy; 2020</small>
+        <small>By Amilkar Ch. &copy; 2021</small>
     </footer>
     <!-- END Footer -->
 </div>
