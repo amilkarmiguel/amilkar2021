@@ -12,6 +12,9 @@
             <li>
                 <a href="{{ route('usuarios.create') }}">Agregar Nuevo <i class="fa fa-user-plus sidebar-nav-indicator sidebar-nav-mini-hide"></i></a>
             </li>
+            <li>
+                <a href="{{ route('reports.user') }}">Ver Reportes <i class="fa fa-search sidebar-nav-indicator sidebar-nav-mini-hide"></i></a>
+            </li>
         </ul>
     </li>
     @endcan

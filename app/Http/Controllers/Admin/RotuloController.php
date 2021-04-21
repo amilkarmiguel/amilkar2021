@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Rotulo;
+use App\Person;
 use Illuminate\Http\Request;
 use RealRashid\SweetAlert\Facades\Alert;
 use PDF;
@@ -17,8 +18,7 @@ class RotuloController extends Controller
      */
     public function index()
     {
-        $rotulos = Rotulo::all();
-
+        $rotulos = Rotulo::where('user_id', '=', auth()->user()->id)->paginate(20);
 
         return view('admin.rotulos.index', compact('rotulos'));
     }
@@ -139,8 +139,21 @@ class RotuloController extends Controller
         PDF::SetMargins(5, 5, 5);
         PDF::SetAutoPageBreak(TRUE, 2);
         PDF::SetTitle('Rotulo');
-        PDF::AddPage('L', 'A4');
+        //PDF::AddPage('L', 'Letter');
+        PDF::AddPage('L',[160, 216]);
+        //PDF::AddPage('L',[216,160]);
+
         PDF::writeHTML($html, true, false, true, false, '');
         PDF::Output('rotulo-'.$rotulo->id.'.pdf');
+    }
+    public function searchUser(){
+        return view('admin.reports.user');
+    }
+    public function resultSearch(Request $request){
+        $ci = $request->ci;
+        $user = Person::where('ci', '=', $ci)->get();
+        $id = $user[0]->user_id;
+        $rotulos = Rotulo::where('user_id', '=', $id)->get();
+        return view('admin.rotulos.searchCI', compact('rotulos', 'user'));
     }
 }

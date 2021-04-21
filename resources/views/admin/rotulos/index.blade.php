@@ -74,6 +74,7 @@
 
                 </tbody>
             </table>
+            {{$rotulos->links()}}
         </div>
     </div>
     <!-- END Dashboard Header -->

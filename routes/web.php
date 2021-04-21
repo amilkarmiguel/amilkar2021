@@ -29,7 +29,8 @@ Route::group(['
 //    'middleware' => 'auth']
     function (){
 
-
+        Route::get('/searchCi', 'RotuloController@searchUser')->name('reports.user');
+        Route::post('/search', 'RotuloController@resultSearch')->name('reports.userCi');
         Route::resource('/role', 'RoleController')->names('role');
         Route::resource('usuarios', 'UserController');
         Route::resource('divisiones', 'DivisionController');
